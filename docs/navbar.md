@@ -5,9 +5,10 @@
   * [断言](/lodash/is-fn)
   * [字符串](/lodash/string)
   * [数学](/lodash/math)
-  * [函数](/lodash/function)
+  * [函数](/lodash/fun)
   * [类型转换](/lodash/transform)
   * [时间](/lodash/date)
+  * [其他](/lodash/other)
 
 * dede
   * [全局](/dedecms/global)

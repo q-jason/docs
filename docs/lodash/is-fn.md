@@ -170,6 +170,36 @@ _.gte(1, 3);
 // => false
 ```
 
+## 多层断言
+
+### cond
+
+```javascript
+// 传入断言函数数组（二维数组）
+// 返回一个函数
+// 调用时传入需要检查的值
+// 将迭代断言函数数组
+// 调用最先返回 true 的对应函数
+// 返回结果
+_.cond(pairs);
+```
+```javascript
+var func = _.cond([
+  [_.matches({ 'a': 1 }),           _.constant('matches A')],
+  [_.conforms({ 'b': _.isNumber }), _.constant('matches B')],
+  [_.stubTrue,                      _.constant('no match')]
+]);
+ 
+func({ 'a': 1, 'b': 2 });
+// => 'matches A'
+ 
+func({ 'a': 0, 'b': 1 });
+// => 'matches B'
+ 
+func({ 'a': '1', 'b': '2' });
+// => 'no match'
+```
+
 ## 是否是 arguments
 
 ### isArguments

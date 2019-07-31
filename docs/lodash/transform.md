@@ -126,6 +126,20 @@ console.log(_.castArray(array) === array);
 // => true
 ```
 
+### toPath（将 string value 转化为 path 数组）
+> 返回新数组
+
+```javascript
+_.toPath(value);
+```
+```javascript
+_.toPath('a.b.c');
+// => ['a', 'b', 'c']
+ 
+_.toPath('a[0].b.c');
+// => ['a', '0', 'b', 'c']
+```
+
 ## 转为字符串
 
 ### toString（会根据不同类型进行处理）
@@ -163,6 +177,19 @@ _.toNumber(Infinity);
  
 _.toNumber('3.2');
 // => 3.2
+```
+
+### parseInt（转为整数，同 ES5 parseInt）
+
+```javascript
+_.parseInt(string, [radix=10])
+```
+```javascript
+_.parseInt('08');
+// => 8
+ 
+_.map(['6', '08', '10'], _.parseInt);
+// => [6, 8, 10]
 ```
 
 ### toSafeInteger（转为安全数字）

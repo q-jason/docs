@@ -167,23 +167,22 @@ curried(3)(1, _)(2);
 // => [1, 2, 3]
 ```
 
-## 取反函数
+## 捕捉错误
 
-### negate（将断言函数取反）
-> 返回新函数
+### attempt（调用，返回正常结果 或 Error）
 
 ```javascript
-// 传入一个返回断言的函数
-// 返回一个取反的函数
-_.negate(predicate);
+_.attempt(func, [args]);
 ```
 ```javascript
-function isEven(n) {
-  return n % 2 === 0;
-}
+// Avoid throwing errors for invalid selectors.
+var elements = _.attempt(function(selector) {
+  return document.querySelectorAll(selector);
+}, '>_>');
  
-_.filter([1, 2, 3, 4, 5, 6], _.negate(isEven));
-// => [1, 3, 5]
+if (_.isError(elements)) {
+  elements = [];
+}
 ```
 
 ## 延迟调用
@@ -212,6 +211,22 @@ _.delay(function(text) {
   console.log(text);
 }, 1000, 'later');
 // => 一秒后输出 'later'。
+```
+
+## 循环调用
+
+### times（循环调用 fn）
+> 返回调用结果的数组
+
+```javascript
+_.times(n, [iteratee=_.identity]);
+```
+```javascript
+_.times(3, String);
+// => ['0', '1', '2']
+ 
+ _.times(4, _.constant(0));
+// => [0, 0, 0, 0]
 ```
 
 ## 缓存
@@ -362,7 +377,7 @@ rearged('b', 'c', 'a')
 
 ## this 绑定
 
-### bind
+### bind（简单绑定）
 > 返回新函数
 
 ```javascript
@@ -389,7 +404,7 @@ bound2('hi');
 // => 'hi fred!'
 ```
 
-### bindKey
+### bindKey（绑定后可以改函数）
 > 返回新函数
 
 ```javascript
@@ -422,6 +437,24 @@ bound('!');
 var bound = _.bindKey(object, 'greet', _, '!');
 bound('hi');
 // => 'hiya fred!'
+```
+
+### bindAll
+
+```javascript
+_.bindAll(object, methodNames);
+```
+```javascript
+var view = {
+  'label': 'docs',
+  'click': function() {
+    console.log('clicked ' + this.label);
+  }
+};
+ 
+_.bindAll(view, ['click']);
+jQuery(element).on('click', view.click);
+// => Logs 'clicked docs' when clicked.
 ```
 
 ## 没有整理的

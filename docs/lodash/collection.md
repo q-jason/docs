@@ -1180,6 +1180,65 @@ _.flatMapDepth([1, 2], function (n) {
 // => [[1, 1], [2, 2]]
 ```
 
+## 创建范围数组
+
+### range（正序，从 start 到 end 的数组）
+> 返回新数组
+
+```javascript
+_.range([start=0], end, [step=1]);
+```
+```javascript
+_.range(4);
+// => [0, 1, 2, 3]
+ 
+_.range(-4);
+// => [0, -1, -2, -3]
+ 
+_.range(1, 5);
+// => [1, 2, 3, 4]
+ 
+_.range(0, 20, 5);
+// => [0, 5, 10, 15]
+ 
+_.range(0, -4, -1);
+// => [0, -1, -2, -3]
+ 
+_.range(1, 4, 0);
+// => [1, 1, 1]
+ 
+_.range(0);
+// => []
+```
+
+### rangeRight（降序，从 end 到 start 的数组）
+
+```javascript
+_.rangeRight([start=0], end, [step=1]);
+```
+```javascript
+_.rangeRight(4);
+// => [3, 2, 1, 0]
+ 
+_.rangeRight(-4);
+// => [-3, -2, -1, 0]
+ 
+_.rangeRight(1, 5);
+// => [4, 3, 2, 1]
+ 
+_.rangeRight(0, 20, 5);
+// => [15, 10, 5, 0]
+ 
+_.rangeRight(0, -4, -1);
+// => [-3, -2, -1, 0]
+ 
+_.rangeRight(1, 4, 0);
+// => [1, 1, 1]
+ 
+_.rangeRight(0);
+// => []
+```
+
 ## 长度
 
 ### size
