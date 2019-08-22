@@ -177,6 +177,7 @@
 ```
 
 ## 自增（索引判断）
+
 ```
 [field:global name=autoindex runphp="yes"](@me%2==0)? @me="|":@me="";[/field:global]
 ```
