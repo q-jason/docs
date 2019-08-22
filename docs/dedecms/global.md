@@ -44,6 +44,7 @@
  
  
  
+ 
 ## 循环调用
 ```
 调用所有一级栏目和二级栏目
@@ -173,4 +174,9 @@
   <input name="q" type="text">
   <input type="submit">
 </form>
+```
+
+## 自增（索引判断）
+```
+[field:global name=autoindex runphp="yes"](@me%2==0)? @me="|":@me="";[/field:global]
 ```
