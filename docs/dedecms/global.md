@@ -91,6 +91,8 @@
 > 注意 orderby = 'weight'，默认好像无效（未测试），需要自己写 php 代码（百度即可找到） <br/>
 
 ```
+{dede:arclist titlelen='400' typeid='3' orderby='weight' orderway='desc' row="3"}
+// or
 {dede:arclist flag='h' typeid='' row='' col='' titlelen='' infolen='' imgwidth='' imgheight='' listtype='' orderby='' keyword='' limit='0,1'}
   // 所属栏目名
   [field:typename/]
