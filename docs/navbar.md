@@ -15,3 +15,12 @@
   * [列表](/dedecms/list)
   * [详情](/dedecms/detail)
   * [自定义](/dedecms/custom)
+  
+* joi
+  * [首页](/joi/index)
+  * [any](/joi/any)
+  * [object](/joi/object)
+  * [string](/joi/string)
+  * [number](/joi/number)
+  * [date](/joi/date)
+  * [array](/joi/array)
